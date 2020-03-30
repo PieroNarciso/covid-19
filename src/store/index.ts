@@ -6,8 +6,8 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    domain: 'https://api.covid19api.com/country/',
-    lastUrl: '/status/confirmed/live',
+    domain: 'https://api.covid19api.com/total/country/',
+    lastUrl: '/status/confirmed',
     items: [
       {
         id: 1,
@@ -34,8 +34,8 @@ export default new Vuex.Store({
         value: 'Country'
       },
       { text: 'Date', value: 'Date' },
-      { text: 'Latitud', value: 'Lat', sortable: false },
-      { text: 'Longitude', value: 'Lon', sortable: false },
+      // { text: 'Latitud', value: 'Lat', sortable: false },
+      // { text: 'Longitude', value: 'Lon', sortable: false },
       { text: 'Status', value: 'Status', sortable: false },
       { text: 'Cases', value: 'Cases' }
     ],
