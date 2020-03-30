@@ -1,14 +1,17 @@
 <template>
   <div id="the-filter">
     <form>
-      <v-select
+      <v-autocomplete
         :items="countries"
         item-text="Country"
         item-value="Slug"
         label="Select Country"
         @change="getDataByCountry"
-        menu-props="auto"
-      ></v-select>
+        @submit.prevent
+        hide-no-data
+        hide-selected
+        prepend-icon="mdi-database-search"
+      ></v-autocomplete>
     </form>
   </div>
 </template>
