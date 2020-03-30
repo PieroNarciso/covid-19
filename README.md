@@ -1,5 +1,5 @@
 <<<<<<< HEAD
-# frontend
+# COVID-19
 
 ## Project setup
 ```
