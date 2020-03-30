@@ -2,8 +2,9 @@
   <div id="app-footer">
     <v-footer app color="primary" dark>
       <v-col class="text-center" cols="12">
+        <v-icon>mdi-copyright</v-icon>
         {{ new Date().getFullYear() }} —
-        <strong>Cecata</strong>
+        <strong>CECATA</strong>
       </v-col>
     </v-footer>
   </div>
