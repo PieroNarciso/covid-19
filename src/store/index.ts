@@ -8,23 +8,7 @@ export default new Vuex.Store({
   state: {
     domain: 'https://api.covid19api.com/total/country/',
     lastUrl: '/status/confirmed',
-    items: [
-      {
-        id: 1,
-        text: "Peru",
-        value: "peru"
-      },
-      {
-        id: 2,
-        text: "Chile",
-        value: "chile"
-      },
-      {
-        id: 3,
-        text: "Mexico",
-        value: "mexico"
-      }
-    ],
+    showLoader: false,
     countryData: [],
     headers: [
       {
@@ -43,10 +27,10 @@ export default new Vuex.Store({
     countries: []
   },
   getters: {
-    getItems: state => state.items,
     getCountryData: state => state.countryData,
     getHeaders: state => state.headers,
-    getCountries: state => state.countries
+    getCountries: state => state.countries,
+    getShowLoader: state => state.showLoader
   },
   mutations: {
     updateCountryData: (state, data) => {
@@ -55,6 +39,10 @@ export default new Vuex.Store({
 
     updateCountries: (state, data) => {
       state.countries = data
+    },
+
+    changeShowLoader: (state, data: boolean) => {
+      state.showLoader = data;
     }
   },
   actions: {
@@ -62,7 +50,8 @@ export default new Vuex.Store({
       axios
         .get(context.state.domain + country + context.state.lastUrl)
         .then(res => {
-          context.commit('updateCountryData', res.data)
+          context.commit('updateCountryData', res.data);
+          context.commit('changeShowLoader', false);
         })
         .catch(err => console.log(err))
     },
@@ -70,9 +59,13 @@ export default new Vuex.Store({
     getCountries: (context) => {
       axios.get('https://api.covid19api.com/countries')
         .then(res => {
-          context.commit('updateCountries', res.data)
+          context.commit('updateCountries', res.data);
         })
         .catch(err => console.log(err))
+    },
+
+    changeShowLoader: (context, data: boolean) => {
+      context.commit('changeShowLoader', data);
     }
   },
   modules: {

@@ -14,13 +14,10 @@ import Vue from "vue";
 import AppHeader from "@/components/layout/AppHeader.vue";
 import AppFooter from "@/components/layout/AppFooter.vue";
 
-import HelloWorld from "./components/HelloWorld.vue";
-
 export default Vue.extend({
   name: "App",
 
   components: {
-    HelloWorld,
     AppHeader,
     AppFooter
   },

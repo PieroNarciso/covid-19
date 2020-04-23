@@ -12,6 +12,7 @@
         hide-selected
         prepend-icon="mdi-database-search"
       ></v-autocomplete>
+      <v-progress-linear v-if="showLoader" indeterminate rounded height="6"></v-progress-linear>
     </form>
   </div>
 </template>
@@ -28,10 +29,14 @@ export default Vue.extend({
 
     countries() {
       return this.$store.getters.getCountries;
+    },
+    showLoader() {
+      return this.$store.getters.getShowLoader;
     }
   },
   methods: {
     getDataByCountry: function(country: string) {
+      this.$store.dispatch("changeShowLoader", true);
       this.$store.dispatch("getDataByCountry", country);
     }
   },
