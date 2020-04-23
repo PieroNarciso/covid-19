@@ -1,12 +1,22 @@
 <template>
   <div id="table-data">
     <template v-if="countryData.length > 0">
-      <v-data-table :headers="headers" :items="countryData" class="elevation-1">
-        <template v-slot:item.Date="{ item }">{{ getDate(item.Date) }}</template>
-        <template v-slot:item.Cases="{ item }">
-          <v-chip :color="getColor(item.Cases)" dark>{{ item.Cases }}</v-chip>
-        </template>
-      </v-data-table>
+      <v-row justify="center">
+        <v-col xs="12" md="8">
+          <v-data-table
+            :headers="headers"
+            :items="countryData"
+            :sort-by="['Cases']"
+            :sort-desc="[true]"
+            class="elevation-1"
+          >
+            <template v-slot:item.Date="{ item }">{{ getDate(item.Date) }}</template>
+            <template v-slot:item.Cases="{ item }">
+              <v-chip :color="getColor(item.Cases)" dark>{{ item.Cases }}</v-chip>
+            </template>
+          </v-data-table>
+        </v-col>
+      </v-row>
     </template>
     <template v-else>
       <v-row justify="center">
