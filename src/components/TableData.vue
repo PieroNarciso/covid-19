@@ -2,7 +2,7 @@
   <div id="table-data">
     <template v-if="countryData.length > 0">
       <v-row justify="center">
-        <v-col xs="12" md="8">
+        <v-col xs="12" md="10" lg="8">
           <v-data-table
             :headers="headers"
             :items="countryData"
