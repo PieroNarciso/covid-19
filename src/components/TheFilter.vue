@@ -12,7 +12,7 @@
         hide-selected
         prepend-icon="mdi-database-search"
       ></v-autocomplete>
-      <v-progress-linear v-if="showLoader" indeterminate rounded height="6"></v-progress-linear>
+      <v-progress-linear v-if="showLoader" indeterminate rounded height="6" class="mb-3"></v-progress-linear>
     </form>
   </div>
 </template>

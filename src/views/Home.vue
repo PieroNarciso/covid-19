@@ -1,7 +1,12 @@
 <template>
   <div class="home">
     <v-container>
-      <the-filter></the-filter>
+      <v-row justify="center">
+        <v-col xs="12" md="6">
+          <the-filter></the-filter>
+        </v-col>
+      </v-row>
+
       <table-data></table-data>
     </v-container>
   </div>

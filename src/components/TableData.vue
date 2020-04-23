@@ -9,7 +9,11 @@
       </v-data-table>
     </template>
     <template v-else>
-      <v-alert type="info">Select a country to view the data</v-alert>
+      <v-row justify="center">
+        <v-col xs="12" md="6">
+          <v-alert type="info">Select a country to view the data</v-alert>
+        </v-col>
+      </v-row>
     </template>
   </div>
 </template>
