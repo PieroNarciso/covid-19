@@ -10,7 +10,7 @@
           </v-card-text>
           <v-card-text>
             <div
-              class="headline font-weight-thin white--text"
+              :class="{'headline font-weight-thin white--text': true, 'subtitle-1 font-weight-thin white--text': $vuetify.breakpoint.xs}"
             >Current cases: {{ countryData[countryData.length - 1].Cases }}</div>
           </v-card-text>
         </v-card>
