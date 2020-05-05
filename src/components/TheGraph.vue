@@ -21,9 +21,17 @@
 
 <script lang="ts">
 import Vue from "vue";
+import { GChart } from "vue-google-charts";
 
 export default Vue.extend({
   name: "TheGraph",
+  components: {
+    GChart
+  },
+  data() {
+    return {};
+  },
+
   computed: {
     countryData() {
       return this.$store.getters.getCountryData;
