@@ -5,10 +5,9 @@
         <v-card v-if="countryData.length > 0" class="mx-auto text-center">
           <v-card-text>
             <div
-              :class="{'headline font-weight gray--text': true, 'subtitle-1 font-weight-thin white--text': $vuetify.breakpoint.xs}"
+              :class="{'headline font-weight gray--text': true, 'subtitle-1 font-weight gray--text': $vuetify.breakpoint.xs}"
             >Current cases: {{ countryData[countryData.length - 1].Cases }}</div>
           </v-card-text>
-
           <v-card-text>
             <GChart type="LineChart" :data="getCasesTable(countryData)" :options="options" />
           </v-card-text>
@@ -30,13 +29,13 @@ export default Vue.extend({
   data() {
     return {
       options: {
-        title: "Número acumulado de casos por día",
+        title: "Total Confirmed Cases",
         legend: { position: "top" },
         hAxis: {
           title: "Days"
         },
         vAxis: {
-          title: "Casos acumulados"
+          title: "Total Cases"
         },
         backgroundColor: "#E0F7FA"
       }
