@@ -2,16 +2,15 @@
   <div id="the-graph">
     <v-row justify="center">
       <v-col xs="12" md="10" lg="8">
-        <v-card v-if="countryData.length > 0" color="green" class="mx-auto text-center">
-          <v-card-text>
-            <v-sheet color="green darken-1">
-              <v-sparkline color="white" line-width="1" :value="getCases(countryData)"></v-sparkline>
-            </v-sheet>
-          </v-card-text>
+        <v-card v-if="countryData.length > 0" class="mx-auto text-center">
           <v-card-text>
             <div
-              :class="{'headline font-weight-thin white--text': true, 'subtitle-1 font-weight-thin white--text': $vuetify.breakpoint.xs}"
+              :class="{'headline font-weight gray--text': true, 'subtitle-1 font-weight-thin white--text': $vuetify.breakpoint.xs}"
             >Current cases: {{ countryData[countryData.length - 1].Cases }}</div>
+          </v-card-text>
+
+          <v-card-text>
+            <GChart type="LineChart" :data="getCasesTable(countryData)" :options="options" />
           </v-card-text>
         </v-card>
       </v-col>
@@ -29,7 +28,19 @@ export default Vue.extend({
     GChart
   },
   data() {
-    return {};
+    return {
+      options: {
+        title: "Número acumulado de casos por día",
+        legend: { position: "top" },
+        hAxis: {
+          title: "Days"
+        },
+        vAxis: {
+          title: "Casos acumulados"
+        },
+        backgroundColor: "#E0F7FA"
+      }
+    };
   },
 
   computed: {
@@ -40,6 +51,14 @@ export default Vue.extend({
   methods: {
     getCases: (data: Array<any>) => {
       return data.map(element => element.Cases);
+    },
+
+    getCasesTable: (data: Array<any>) => {
+      const table = [
+        ["Day", "Num Cases"],
+        ...data.map((element, index) => [index, element.Cases])
+      ];
+      return table;
     }
   }
 });
