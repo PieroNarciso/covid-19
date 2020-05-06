@@ -59,6 +59,15 @@ export default new Vuex.Store({
     getCountries: (context) => {
       axios.get('https://api.covid19api.com/countries')
         .then(res => {
+          res.data.sort((a, b) => {
+            if (a.Country > b.Country) {
+              return 1;
+            }
+            if (a.Country < b.Country) {
+              return -1;
+            }
+            return 0;
+          });
           context.commit('updateCountries', res.data);
         })
         .catch(err => console.log(err))
