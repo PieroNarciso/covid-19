@@ -11,16 +11,16 @@ export default new Vuex.Store({
     showLoader: false,
     countryData: [],
     headers: [
-      {
-        text: 'Country',
-        align: 'start',
-        sortable: false,
-        value: 'Country'
-      },
+      // {
+      //   text: 'Country',
+      //   align: 'start',
+      //   sortable: false,
+      //   value: 'Country'
+      // },
       { text: 'Date', value: 'Date' },
       // { text: 'Latitud', value: 'Lat', sortable: false },
       // { text: 'Longitude', value: 'Lon', sortable: false },
-      { text: 'Status', value: 'Status', sortable: false },
+      // { text: 'Status', value: 'Status', sortable: false },
       { text: 'Cases', value: 'Cases' }
     ],
 
