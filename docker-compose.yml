@@ -1,0 +1,14 @@
+version: '3.7'
+
+services: 
+    web:
+        image: covid19view
+        container_name: covid19view
+        build:
+            context: .
+            dockerfile: Dockerfile
+        volumes: 
+            - '.:/app'
+            - '/app/node_modules'
+        ports: 
+            - '8080:8080'
